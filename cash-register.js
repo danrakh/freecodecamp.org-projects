@@ -12,7 +12,7 @@ function checkCashRegister(price, cash, cid) {
   };
   
   let myStartingCash = fillMyCash(cid);
-  let myCash = fillMyCash(cid); //nie moze byc let myCash=myStartingCash bo wtedy myStartingCash tez mutuje razem z myCash
+  let myCash = fillMyCash(cid); //it can't be let myCash=myStartingCash because then myStartingCash mutates along with myCash
 
   for (let i = 8; i >= 0;) {
       if (changeToReturn >= NOMINALS[i] && myCash[i] - NOMINALS[i] >= 0) {
@@ -22,8 +22,6 @@ function checkCashRegister(price, cash, cid) {
           i--;
       };
   };
-
-  console.log('NOMINALS',NOMINALS,'\n', 'myStartingCash',myStartingCash,'\n', 'myCash',myCash)
 
   let countTheRest = function (arr1, arr2) {
     let myNominals = ['PENNY', 'NICKEL', 'DIME', 'QUARTER', 'ONE', 'FIVE', 'TEN', 'TWENTY', 'ONE HUNDRED'];
