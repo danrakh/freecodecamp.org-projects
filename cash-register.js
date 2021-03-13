@@ -2,7 +2,7 @@ function checkCashRegister(price, cash, cid) {
 
   const NOMINALS = [1, 5, 10, 25, 100, 500, 1000, 2000, 10000];
 
-  let startingChange = (Math.round((cash - price) * 100));
+  let startingChange = (Math.round((cash - price) * 100)); //this is in order to prevent bugs due to 0.1 + 0.2 != 0.3 js behaviour
   let changeToReturn = startingChange;
 
   let fillMyCash = function (arr){
