@@ -4,7 +4,6 @@ function checkCashRegister(price, cash, cid) {
 
   let startingChange = (Math.round((cash - price) * 100));
   let changeToReturn = startingChange;
-  // console.log('Change to return before deduction ', changeToReturn);
 
   let fillMyCash = function (arr){
     let myArr = [];
@@ -25,25 +24,19 @@ function checkCashRegister(price, cash, cid) {
   };
 
   console.log('NOMINALS',NOMINALS,'\n', 'myStartingCash',myStartingCash,'\n', 'myCash',myCash)
-  // console.log('myCash after deduction ',myCash);
-  // console.log('Change after deduction ', changeToReturn)
-  // console.log(myStartingCash[5], ' - ', myCash[5]);
 
   let countTheRest = function (arr1, arr2) {
-    // console.log('myCash in countTheRest',arr1,'myStartingCash in countTheRest',arr2)
     let myNominals = ['PENNY', 'NICKEL', 'DIME', 'QUARTER', 'ONE', 'FIVE', 'TEN', 'TWENTY', 'ONE HUNDRED'];
     let myArr = [];
     for (let j = 8; j >= 0; j--) {
       if (arr1[j] >= 0 && arr1[j] != arr2[j]) {
         myArr.push([myNominals[j], (arr2[j] - arr1[j])/100]);
-        // console.log(myNominals[j], 'arr1[j] =', arr1[j], 'arr2[j] =', arr2[j]);
       };
     };
     return myArr;
   };
 
   let nominalsToReturn = countTheRest(myCash, myStartingCash);
-  // console.log(nominalsToReturn);
 
   let myObj = {
     status : null,
@@ -65,10 +58,7 @@ function checkCashRegister(price, cash, cid) {
     myObj.change = [];
   };
 
-  console.log(myObj);
-  // console.log(myCash);
-  // console.log('Change to return after deduction ', changeToReturn);
-  // return myObj;
+  return myObj;
 }
   
   checkCashRegister(3.26, 100, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
