@@ -2,12 +2,12 @@ function checkCashRegister(price, cash, cid) {
 
   const NOMINALS = [1, 5, 10, 25, 100, 500, 1000, 2000, 10000];
 
-  let startingChange = (Math.round((cash - price) * 100)); //this is in order to prevent bugs due to 0.1 + 0.2 != 0.3 js behaviour
+  let startingChange = (Math.round((cash - price) * 100)); //multiplying everything by 100 is in order to prevent bugs due to 0.1 + 0.2 != 0.3 js behaviour
   let changeToReturn = startingChange;
 
   let fillMyCash = function (arr){
     let myArr = [];
-    arr.forEach(e => e[1] > 0 ? myArr.push(Math.round(e[1]*100)) : myArr.push(0));
+    arr.forEach(e => e[1] > 0 ? myArr.push(Math.round(e[1]*100)) : myArr.push(0)); //again, it's to prevent 0.1 + 0.2 != 0.3 issues
     return myArr;
   };
   
